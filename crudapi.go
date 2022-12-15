@@ -13,6 +13,7 @@ func initialRouter() {
 	rout := mux.NewRouter().StrictSlash(true)
 	rout.Use(middleware.CommonMiddleware)
 	rout.HandleFunc("/login", controllers.Login).Methods("POST")
+	rout.HandleFunc("/", Testing).Methods("GET")
 	rout.HandleFunc("/userCreate", controllers.Signup).Methods("POST")
 	rout.HandleFunc("/forgotpassword", controllers.ForgotPassword).Methods("POST")
 	rout.HandleFunc("/resetpassword", controllers.ResetPassword).Methods("POST")
@@ -25,4 +26,11 @@ func initialRouter() {
 	auth.HandleFunc("/validate", controllers.Validate).Methods("GET")
 	//r.Use(middleware.CommonMiddleware)
 	log.Fatal(http.ListenAndServe(":8080", rout))
+}
+
+func Testing(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Println("Working fine")
+	json.NewEncoder(w).Encode("Working Good")
+
 }
