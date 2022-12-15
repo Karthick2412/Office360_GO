@@ -9,7 +9,8 @@ var DB *gorm.DB
 var err error
 
 // var DB = initializers.ConnectToDb()
-var DSN = "root:root@123@tcp(127.0.0.1:3306)/report?charset=utf8mb4&parseTime=True&loc=Local"
+// var DSN = "sql6584688:8NtvpkcXWg@tcp(sql6.freesqldatabase.com:3306)/sql6584688?charset=utf8mb4&parseTime=True&loc=Local"
+var DSN = "ltbwqODtnJ:XS3bkyXm0Z@tcp(remotemysql.com:3306)/ltbwqODtnJ?charset=utf8mb4&parseTime=True&loc=Local"
 
 func ConnectToDb() *gorm.DB {
 
